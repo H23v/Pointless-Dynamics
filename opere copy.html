@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pointless Dynamics – Opere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    html,body{margin:0;padding:0;height:100%;overflow:auto;
+      background:linear-gradient(180deg,#151515 0%,#0e0e0e 100%);
+      font-family:'Monaco',monospace;color:#ececec;}
+    body{display:flex;flex-direction:column;align-items:stretch;}
+
+    /* HEADER */
+    .top-buttons{display:flex;width:100%;height:45px;z-index:6;}
+    .top-buttons a{flex:1 0 0%;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;
+      text-decoration:none;background:transparent;color:#fff;font-size:.9rem;letter-spacing:1px;border:none;
+      border-bottom:1px solid #fff;font-family:'Monaco',monospace;white-space:nowrap;cursor:pointer;}
+    .top-buttons a+ a{border-left:1px solid #fff;}
+
+    /* LAYOUT */
+    .wrapper{width:100%;max-width:900px;margin:40px auto 60px;padding:0 20px;box-sizing:border-box;}
+    .map{width:100%;max-height:400px;object-fit:contain;border:0px solid #444;margin-bottom:40px;}
+
+    .opera{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #444;}
+    .opera:last-child{border-bottom:none;margin-bottom:0;}
+    .opera h3{margin:0 0 6px;font-size:1rem;font-weight:600;}
+    .meta{font-size:.75rem;color:#a8a8a8;margin-bottom:6px;}
+    .concept{font-size:.8rem;line-height:1.5;text-align:justify;text-align-last:left;}
+
+    @media(max-width:600px){
+      .wrapper{margin:30px auto 40px;}
+      .opera h3{font-size:.9rem;}
+      .concept{font-size:.75rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header buttons -->
+  <div class="top-buttons">
+    <a href="index.html">HOME</a>
+    <a href="#" style="pointer-events:none">OPERE</a>
+  </div>
+
+  <div class="wrapper">
+    <!-- Map image -->
+    <img src="mappabianca.png" alt="Pianta della mostra" class="map">
+
+    <!-- Opera 1 -->
+    <div class="opera">
+      <h3>Autore 1 — Titolo Opera 1 (2025)</h3>
+      <div class="meta">Materiali: acciaio, LED, micro‑controllore</div>
+      <p class="concept">Installazione cinetica che reinterpreta il concetto di <em>macchina celibe</em>: il movimento perpetuo privo di scopo produce pattern luminosi che variano in risposta al rumore ambientale.</p>
+    </div>
+
+    <!-- Opera 2 -->
+    <div class="opera">
+      <h3>Autore 2 — Titolo Opera 2 (2025)</h3>
+      <div class="meta">Materiali: stampa 3D, plexiglass, motore passo‑passo</div>
+      <p class="concept">Scultura modulare in cui ogni segmento ruota liberamente senza sincronizzazione, generando configurazioni imprevedibili che sfidano l'idea di efficienza meccanica.</p>
+    </div>
+
+    <!-- Opera 3 -->
+    <div class="opera">
+      <h3>Autore 3 — Titolo Opera 3 (2024)</h3>
+      <div class="meta">Materiali: circuiti ridondanti, specchio one‑way</div>
+      <p class="concept">Dispositivo speculativo che riflette l'osservatore mentre un circuito in loop esegue calcoli inutili, visualizzando la propria inutilità come pattern termico sul vetro.</p>
+    </div>
+
+    <!-- Opera 4 -->
+    <div class="opera">
+      <h3>Autore 4 — Titolo Opera 4 (2025)</h3>
+      <div class="meta">Materiali: motori DC, carta, inchiostro</div>
+      <p class="concept">Plotter autogestito che disegna linee sovrapposte senza produrre immagini riconoscibili, enfatizzando il gesto ripetitivo fine a sé stesso.</p>
+    </div>
+
+    <!-- Opera 5 -->
+    <div class="opera">
+      <h3>Autore 5 — Titolo Opera 5 (2025)</h3>
+      <div class="meta">Materiali: servo, sensore distanza, tessuto</div>
+      <p class="concept">Un braccio robotico sfiora costantemente un velo di tessuto, creando pieghe transitorie che si dissolvono non appena vengono formate.</p>
+    </div>
+
+    <!-- Opera 6 -->
+    <div class="opera">
+      <h3>Autore 6 — Titolo Opera 6 (2024)</h3>
+      <div class="meta">Materiali: display e‑ink riciclati, algoritmo random</div>
+      <p class="concept">Pannello di e‑ink che aggiorna segmenti casuali dello schermo con caratteri privi di senso, una poesia glitch in continua mutazione.</p>
+    </div>
+
+    <!-- Opera 7 -->
+    <div class="opera">
+      <h3>Autore 7 — Titolo Opera 7 (2025)</h3>
+      <div class="meta">Materiali: vetro, laser, rumor bianco</div>
+      <p class="concept">Fascio laser attraversa una colonna di vetro diffondendosi secondo una modulazione audio aleatoria, materializzando l'invisibile.</p>
+    </div>
+
+    <!-- Opera 8 -->
+    <div class="opera">
+      <h3>Autore 8 — Titolo Opera 8 (2025)</h3>
+      <div class="meta">Materiali: feedback video analogico</div>
+      <p class="concept">Loop televisivo che si auto‑riprende generando vortici cromatici, metafora della tecnologia autoreferenziale.</p>
+    </div>
+
+    <!-- Opera 9 -->
+    <div class="opera">
+      <h3>Autore 9 — Titolo Opera 9 (2025)</h3>
+      <div class="meta">Materiali: bilanciere, magneti, legno</div>
+      <p class="concept">Pendolo bilanciato da magneti che non trova mai un equilibrio definitivo, oscillando eternamente in caos controllato.</p>
+    </div>
+  </div>
+</body>
+</html>

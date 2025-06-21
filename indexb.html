@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pointless Dynamics</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Model-Viewer library -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    html,body{margin:0;padding:0;height:100%;overflow:hidden;
+      background:linear-gradient(180deg,#0e0e0e 0%,#1d1d1d 100%);
+      font-family:'Monaco',monospace;color:#cdd2d4;}
+    body{position:relative;display:flex;flex-direction:column;align-items:stretch;}
+
+    /* ───── HEADER (pulsanti) ───── */
+    .top-buttons{display:flex;width:100%;height:45px;position:relative;z-index:6;}
+    .top-buttons button{
+      flex:1 0 0%;min-width:0;height:100%;
+      display:flex;align-items:center;justify-content:center;
+      background:transparent;color:#fff;font-size:.9rem;letter-spacing:1px;
+      cursor:pointer;white-space:nowrap;text-align:center;
+      border:none;border-bottom:1px solid #fff;font-family:'Monaco',monospace;
+      transition:background-color .25s ease,color .25s ease;
+    }
+    #btn-prj{flex:2 0 0%;}
+    .top-buttons button+button{border-left:1px solid #fff;}
+    .top-buttons button.active{background:#055CFF;color:#fff;border-bottom:1px solid #fff;}
+
+    /* ───── MODEL 3D ───── */
+    model-viewer{position:absolute;top:0;right:0;width:100%;height:100%;z-index:4;pointer-events:auto;
+      overflow:visible;opacity:0;transform:scale(.95);transition:opacity 1.5s ease,transform 1.5s ease;}
+    model-viewer::part(ar-button){display:none;}
+
+    /* ───── CONTENUTO ───── */
+    .content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;justify-content:space-between;}
+    .symbols-top{display:flex;justify-content:space-between;font-size:1rem;padding:10px 20px 0;}
+    .main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:0 20px;}
+
+    .title-block{text-align:right;font-size:1.6rem;line-height:2;position:relative;}
+    .title-block .plus-top{position:absolute;top:-1.6rem;right:0;font-size:1rem;}
+    .title-block .line1{right:0;position:relative;}
+    .title-block .line2{font-size:1.8rem;right:20px;position:relative;}
+    .title-block .line3{right:40px;position:relative;padding-right:20px;}
+    .title-block .line4{right:60px;position:relative;}
+
+    .exhibition-content{
+      display:none;flex-direction:column;align-items:flex-start;
+      max-width:90%;margin:38px 20px 0;text-align:justify;text-align-last:left;
+      font-size:.8rem;line-height:1.6;
+    }
+    .exhibition-plus{font-size:1.4rem;line-height:1;margin:10px 0 6px;}
+
+    .info-container{display:flex;flex-direction:column;align-items:center;font-size:.65rem;color:#9da1a3;line-height:1.4;margin:20px;transition:opacity .3s ease;}
+    .info-symbol{font-size:1rem;margin-bottom:4px;}
+    .info-text{text-align:center;max-width:90%;}
+
+    @media(max-width:480px){
+      .title-block{font-size:1rem; color: #a9a9a9;}
+      .title-block .line2{font-size:1.8rem;color: #ffffff;}
+      .top-buttons button{font-size:.75rem;}
+      .info-text{font-size:.6rem;}
+      .exhibition-content{font-size:.7rem;margin-top:28px;}
+      model-viewer{width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="top-buttons">
+    <button id="btn-exhibition">EXHIBITION</button>
+    <button id="btn-prj">#PRJ</button>
+  </div>
+
+  <!-- MODEL 3D -->
+  <model-viewer id="glitchedModel" src="model2.glb" auto-rotate auto-rotate-delay="0"
+      camera-controls disable-zoom disable-pan interaction-prompt="none" shadow-intensity="1" exposure="0.8"
+      camera-orbit="0deg 70deg 2.5m" field-of-view="25deg" bounds="tight" camera-target="0m 0m 0m" contain="none">
+  </model-viewer>
+
+  <!-- CONTENUTO -->
+  <div class="content">
+    <div class="symbols-top"><div>▪</div><div>+</div></div>
+
+    <div class="main">
+      <div class="title-block" id="titleBlock">
+        <div class="plus-top">+</div>
+        <div id="line1" class="line1">/MACCHINE CELIBI</div>
+        <div id="line2" class="line2">POINTLESS DYNAMICS</div>
+        <div id="line3" class="line3">24.06</div>
+        <div id="line4" class="line4">13–14</div>
+      </div>
+
+      <div id="exhibitionContent" class="exhibition-content">
+        <p><strong><em>Pointless Dynamics</em></strong> è uno sforzo immaginativo, un invito a cambiare punto di vista, uno slancio liberatorio. Partendo dal concetto di <em>macchina celibe</em> si mette in discussione l'idea di funzionalità di macchine, strumenti e device di qualsiasi genere. Rimuovendo la necessità di raggiungere un obiettivo che sia funzionale a qualcosa o qualcuno, eludendo il raggiungimento di uno scopo o di un obiettivo prefissato, il nostro rapporto con la tecnologia si trasforma profondamente.</p>
+        <div class="exhibition-plus">+</div>
+        <p>La progettazione è volta ad immaginare e realizzare strumenti speculativi, che permettano di godere del meccanismo senza vincoli di funzionalità o utilità. Una liberazione estatica della macchina, che può essere goduta per la sua forma, struttura e movimento fine a sé stessa. Non c'è alcuna ostilità nei confronti della tecnologia, piuttosto un'esaltazione e un amore profondo, disinteressato e incondizionato.</p>
+      </div>
+    </div>
+
+    <div class="info-container" id="infoContainer">
+      <div class="info-symbol">+</div>
+      <div class="info-text">Accademia di Belle arti di Brera.<br>Biennio Net Art e Culture Digitali, corso di Cibernetica e Teoria dell’Informazione.</div>
+    </div>
+  </div>
+
+  <!-- SCRIPT PRINCIPALE -->
+  <script>
+    /* Animazione titolo */
+    const decode=(el,txt,d=0,s=30)=>{const L='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';let i=0;setTimeout(()=>{const intv=setInterval(()=>{el.innerText=txt.split('').map((c,idx)=>idx<i?c:L[Math.floor(Math.random()*L.length)]).join('');if(++i>txt.length)clearInterval(intv);},s);},d);}  
+    const speed=30,between=200;
+    decode(document.getElementById('line2'),'POINTLESS DYNAMICS',500,speed);
+    let delay=500+'POINTLESS DYNAMICS'.length*speed+300;
+    [['line1','/MACCHINE CELIBI'],['line3','24.06'],['line4','13–14']].forEach(([id,text])=>{const el=document.getElementById(id);el.innerText='';decode(el,text,delay,speed);delay+=text.length*speed+between;});
+
+    /* Glitch modello */
+    const model=document.getElementById('glitchedModel');
+    setTimeout(()=>{model.style.opacity='1';model.style.transform='scale(1)';},delay);
+    const glitch=()=>[0,150,300].forEach(ms=>setTimeout(()=>{model.style.transform='scale(1) translateZ(-5px)';setTimeout(()=>model.style.transform='scale(1) translateZ(0)',80);},ms));
+    (function loop(){setTimeout(()=>{glitch();loop();},1e4+Math.random()*1e4)})();
+
+    /* Toggle EXHIBITION */
+    const btnExh=document.getElementById('btn-exhibition');
+    const title=document.getElementById('titleBlock');
+    const expo=document.getElementById('exhibitionContent');
+    const info=document.getElementById('infoContainer');
+    btnExh.addEventListener('click',()=>{
+      const show=title.style.display!=='none';
+      title.style.display=show?'none':'block';
+      expo.style.display=show?'flex':'none';
+      info.style.opacity=show?0:1;
+      btnExh.innerText=show?'CTRL+Z':'EXHIBITION';
+      btnExh.classList.toggle('active',show);
+    });
+
+    /* Navigazione a opere.html */
+    document.getElementById('btn-prj').addEventListener('click',()=>{
+      window.location.href='opere.html';
+    });
+  </script>
+</body>
+</html>
