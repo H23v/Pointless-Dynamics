@@ -204,7 +204,6 @@ model-viewer::part(ar-button) {
 .map-wrapper img {
     width: 100%;
     height: auto;
-    box-shadow: 0 0 6px #000;
 }
 
 /* Stage */
@@ -306,6 +305,14 @@ model-viewer::part(ar-button) {
 
 .shuffle-btn:active {
     background: #055CFF;
+}
+
+/*  Mappa più piccola su schermi desktop  */
+@media (min-width: 992px) {      /* puoi cambiare la soglia se vuoi */
+    .map-wrapper {
+        width: 55%;              /* valore a piacere: 50-60 % funziona bene */
+        max-width: 300px;        /* opzionale: limita la larghezza assoluta */
+    }
 }
 
 @media(max-width:600px) {
