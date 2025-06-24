@@ -1,0 +1,361 @@
+/******************* BASE *******************/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0e0e0e 0%, #1d1d1d 100%);
+    font-family: 'Monaco', monospace;
+    color: #cdd2d4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+
+/******************* HEADER *****************/
+.top-buttons {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    z-index: 6;
+    position: relative;
+}
+
+.top-buttons button {
+    flex: 1 0 0%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #fff;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    font-family: 'Monaco', monospace;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color .25s ease, color .25s ease;
+}
+
+.top-buttons button+button {
+    border-left: 1px solid #fff;
+}
+
+.top-buttons button.active {
+    background: #055CFF;
+    color: #fff;
+}
+
+/* larghezza doppia per #PRJ / CTRL+Z */
+#btn-prj {
+    flex: 2 0 0%;
+}
+
+/******************* MODEL 3D *****************/
+model-viewer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    pointer-events: auto;
+    overflow: visible;
+    opacity: 0;
+    transform: scale(.95);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+model-viewer::part(ar-button) {
+    display: none;
+}
+
+/******************* CONTENUTO HOME *****************/
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.symbols-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 10px 20px 0;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+.title-block {
+    text-align: right;
+    font-size: 1.6rem;
+    line-height: 2;
+    position: relative;
+}
+
+.title-block .plus-top {
+    position: absolute;
+    top: -1.6rem;
+    right: 0;
+    font-size: 1rem;
+}
+
+.title-block .line1 {
+    right: 0;
+    position: relative;
+}
+
+.title-block .line2 {
+    font-size: 1.8rem;
+    right: 20px;
+    position: relative;
+}
+
+.title-block .line3 {
+    right: 40px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.title-block .line4 {
+    right: 60px;
+    position: relative;
+}
+
+.exhibition-content {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 90%;
+    margin: 38px 20px 0;
+    text-align: justify;
+    text-align-last: left;
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+.exhibition-plus {
+    font-size: 1.4rem;
+    line-height: 1;
+    margin: 10px 0 6px;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .65rem;
+    color: #9da1a3;
+    line-height: 1.4;
+    margin: 20px;
+    transition: opacity .3s ease;
+}
+
+.info-symbol {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.info-text {
+    text-align: center;
+    max-width: 90%;
+}
+
+/******************* SEZIONE OPERE *****************/
+#opereSection {
+    display: none;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Mappa */
+.map-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.map-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+/* Stage */
+.stage {
+    position: relative;
+    flex: 1 1 auto;
+    overflow: hidden;
+    z-index: 2;
+    transition: opacity .2s ease;
+}
+
+/* Card */
+:root {
+    --card-w: 260px;
+    --card-h: 215px;
+}
+
+.card {
+    position: absolute;
+    width: var(--card-w);
+    height: var(--card-h);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: 0 0 14px #000;
+    cursor: pointer;
+    transition: transform .2s ease;
+    z-index: 3;
+}
+
+.card:active {
+    transform: scale(.96);
+}
+
+/* Overlay */
+.overlay {
+    user-select: none;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .92);
+    color: #fff;
+    font-size: .9rem;
+    line-height: 1.5;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease;
+    z-index: 9;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-content {
+    max-width: 800px;
+    text-align: left;
+}
+
+.overlay-content h2 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.overlay-content .meta {
+    font-size: .8rem;
+    color: #9ca0a0;
+    margin-bottom: 12px;
+}
+
+/* Shuffle button */
+.shuffle-btn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #e3e3e3;
+    background: #000;
+    color: #fff;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .15s ease;
+    z-index: 10;
+}
+
+.shuffle-btn:hover {
+    background: #000;
+}
+
+.shuffle-btn:active {
+    background: #055CFF;
+}
+
+/*  Mappa più piccola su schermi desktop  */
+@media (min-width: 992px) {      /* puoi cambiare la soglia se vuoi */
+    .map-wrapper {
+        width: 55%;              /* valore a piacere: 50-60 % funziona bene */
+        max-width: 300px;        /* opzionale: limita la larghezza assoluta */
+    }
+}
+
+@media(max-width:600px) {
+    :root {
+        --card-w: 190px;
+        --card-h: 157px;
+    }
+
+    .overlay {
+        font-size: .75rem;
+        padding: 15px;
+    }
+
+    .overlay-content h2 {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:480px) {
+    .title-block {
+        font-size: 1rem;
+        color: #a9a9a9;
+    }
+
+    .title-block .line2 {
+        font-size: 1.8rem;
+        color: #fff;
+    }
+
+    .top-buttons button {
+        font-size: .75rem;
+    }
+
+    .info-text {
+        font-size: .6rem;
+    }
+
+    .exhibition-content {
+        font-size: .7rem;
+        margin-top: 28px;
+    }
+
+    model-viewer {
+        width: 100%;
+    }
+}
