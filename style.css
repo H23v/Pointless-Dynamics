@@ -5,7 +5,7 @@ body {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    background: linear-gradient(180deg, #0e0e0e 0%, #1d1d1d 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #C5C5C5 100%);
     font-family: 'Monaco', monospace;
     color: #cdd2d4;
 }
@@ -34,11 +34,11 @@ body {
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: #fff;
+    color: #9c9c9c;
     font-size: .9rem;
     letter-spacing: 1px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #9c9c9c;
     font-family: 'Monaco', monospace;
     cursor: pointer;
     white-space: nowrap;
@@ -46,7 +46,7 @@ body {
 }
 
 .top-buttons button+button {
-    border-left: 1px solid #fff;
+    border-left: 1px solid #9c9c9c;
 }
 
 .top-buttons button.active {
@@ -93,6 +93,7 @@ model-viewer::part(ar-button) {
     justify-content: space-between;
     font-size: 1rem;
     padding: 10px 20px 0;
+    color: #272727;
 }
 
 .main {
@@ -116,28 +117,39 @@ model-viewer::part(ar-button) {
     top: -1.6rem;
     right: 0;
     font-size: 1rem;
+    color: #272727
 }
 
 .title-block .line1 {
     right: 0;
     position: relative;
+    color: #00000046;
+    text-shadow: 0px 3px 5px #0000001e;
 }
 
 .title-block .line2 {
-    font-size: 1.8rem;
-    right: 20px;
+    font-size: 3.8rem;
+    color: #e7e7e7;
     position: relative;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    text-shadow: 0px 3px 5px #00000046;
 }
 
 .title-block .line3 {
     right: 40px;
     position: relative;
+    font-size: 2rem;
     padding-right: 20px;
+    color: #0000002d;
 }
 
 .title-block .line4 {
     right: 60px;
     position: relative;
+    color: #e7e7e7;
+    font-size: 2rem;
+    text-shadow: 0px 3px 5px #00000046;
 }
 
 .exhibition-content {
@@ -150,6 +162,9 @@ model-viewer::part(ar-button) {
     text-align-last: left;
     font-size: .8rem;
     line-height: 1.6;
+    font-size: 0.7rem;
+    margin-top: 28px;
+    color: #565656;
 }
 
 .exhibition-plus {
@@ -163,7 +178,7 @@ model-viewer::part(ar-button) {
     flex-direction: column;
     align-items: center;
     font-size: .65rem;
-    color: #9da1a3;
+    color: #707172;
     line-height: 1.4;
     margin: 20px;
     transition: opacity .3s ease;
@@ -308,10 +323,14 @@ model-viewer::part(ar-button) {
 }
 
 /*  Mappa più piccola su schermi desktop  */
-@media (min-width: 992px) {      /* puoi cambiare la soglia se vuoi */
+@media (min-width: 992px) {
+
+    /* puoi cambiare la soglia se vuoi */
     .map-wrapper {
-        width: 55%;              /* valore a piacere: 50-60 % funziona bene */
-        max-width: 300px;        /* opzionale: limita la larghezza assoluta */
+        width: 55%;
+        /* valore a piacere: 50-60 % funziona bene */
+        max-width: 300px;
+        /* opzionale: limita la larghezza assoluta */
     }
 }
 
@@ -358,4 +377,51 @@ model-viewer::part(ar-button) {
     model-viewer {
         width: 100%;
     }
+}
+
+.overlay-text {
+    display: block;
+}
+
+.overlay-preview {
+    display: none;
+    width: min(90vw, 900px);
+    max-height: 85vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-preview img {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.overlay-content.preview-mode .overlay-text {
+    display: none;
+}
+
+.overlay-content.preview-mode .overlay-preview {
+    display: flex;
+}
+
+.card {
+    touch-action: none;
+}
+
+body.explore-active {
+    background: radial-gradient(circle at center, #242731 0%, #000000 100%);
+}
+
+#noiseCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: soft-light;
 }
